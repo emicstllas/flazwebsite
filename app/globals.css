@@ -1,26 +1,86 @@
 @import "tailwindcss";
 
+@font-face {
+  font-family: "F37Blanka";
+  src: url("/fonts/F37 Blanka Regular.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "F37Blanka";
+  src: url("/fonts/F37 Blanka Light.otf") format("opentype");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "F37Blanka";
+  src: url("/fonts/F37 Blanka Medium.otf") format("opentype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "F37Blanka";
+  src: url("/fonts/F37 Blanka Bold.otf") format("opentype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #ECEAE6;
+  --foreground: #1a1a1a;
+  --flaz-teal: #4DC8C8;
+  --flaz-teal-dark: #3aabab;
+  --flaz-dark: #2c2c2c;
+  --flaz-light-blue: #B8D8E8;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-flaz-teal: var(--flaz-teal);
+  --color-flaz-teal-dark: var(--flaz-teal-dark);
+  --color-flaz-dark: var(--flaz-dark);
+  --color-flaz-light-blue: var(--flaz-light-blue);
+  --font-blanka: "F37Blanka", "Arial", sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  box-sizing: border-box;
+}
+
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body {
-  background: var(--background);
+  background-color: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "F37Blanka", Arial, sans-serif;
+  font-weight: 300;
+  margin: 0;
+  padding: 0;
+  position: relative;
 }
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.3;
+  background-image:
+    linear-gradient(rgba(82, 94, 122, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(82, 94, 122, 0.04) 1px, transparent 1px);
+  background-size: 18px 18px;
+}
+
