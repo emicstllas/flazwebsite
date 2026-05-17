@@ -1,5 +1,4 @@
 import HeroSection from "@/components/HeroSection";
-import CalculatorSection from "@/components/CalculatorSection";
 import WhyUsSection from "@/components/WhyUsSection";
 import ServicesSection from "@/components/ServicesSection";
 import ServicesGridSection from "@/components/ServicesGridSection";
@@ -13,7 +12,6 @@ export default function Home() {
   return (
     <main>
       <HeroSection />
-      <CalculatorSection />
       <WhyUsSection />
       <ServicesSection />
       <ServicesGridSection />
