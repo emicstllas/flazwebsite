@@ -90,11 +90,12 @@ export default function CalculatorSection() {
           {/* Area */}
           <div className="border-l-2 border-white/10 pl-4 pr-0 xl:px-8 xl:border-l-0 xl:border-r border-b xl:border-b-0 border-white/10 pb-4 xl:pb-0 mb-4 xl:mb-0">
             <div className="flex items-center justify-between mb-3">
-              <p className="text-white/60 text-xs uppercase tracking-widest">Area</p>
+              <label htmlFor="calc-area" className="text-white/60 text-xs uppercase tracking-widest">Area</label>
               <span className="text-white/60 text-xs">sqm</span>
             </div>
             <div className="flex flex-col gap-3">
               <input
+                id="calc-area"
                 type="range"
                 min={100}
                 max={2000}
@@ -114,11 +115,12 @@ export default function CalculatorSection() {
 
           {/* Bathrooms */}
           <div className="border-l-2 border-white/10 pl-4 pr-0 xl:px-8 xl:border-l-0 xl:border-r border-b xl:border-b-0 border-white/10 pb-4 xl:pb-0 mb-4 xl:mb-0">
-            <p className="text-white/60 text-xs uppercase tracking-widest mb-3">Number of Bathrooms</p>
+            <label htmlFor="calc-bathrooms" className="block text-white/60 text-xs uppercase tracking-widest mb-3">Number of Bathrooms</label>
             <select
+              id="calc-bathrooms"
               value={bathrooms}
               onChange={(e) => setBathrooms(e.target.value)}
-              className="w-full text-sm px-3 py-2.5 rounded-sm cursor-pointer outline-none"
+              className="w-full text-sm px-3 py-2.5 rounded-sm cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--flaz-teal)]"
               style={{
                 backgroundColor: "#3d3d3d",
                 color: bathrooms ? "white" : "rgba(255,255,255,0.4)",

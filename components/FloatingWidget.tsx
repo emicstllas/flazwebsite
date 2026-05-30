@@ -99,7 +99,8 @@ export default function FloatingWidget() {
           </div>
           <button
             onClick={() => setIsChatOpen(false)}
-            className="w-7 h-7 rounded-full flex items-center justify-center transition-colors"
+            aria-label="Close chat"
+            className="w-7 h-7 rounded-full flex items-center justify-center transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/50"
             style={{ backgroundColor: "rgba(255,255,255,0.08)", color: "rgba(255,255,255,0.6)" }}
             onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "rgba(255,255,255,0.15)")}
             onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "rgba(255,255,255,0.08)")}
@@ -136,17 +137,17 @@ export default function FloatingWidget() {
 
           {/* Typing indicator */}
           {isTyping && (
-            <div className="flex items-end gap-2 justify-start">
+            <div className="flex items-end gap-2 justify-start" aria-live="polite" aria-label="AI is typing">
               <div className="w-7 h-7 rounded-full shrink-0 flex items-center justify-center mb-0.5" style={{ backgroundColor: "#1a1a1a" }}>
-                <Image src="/logo.png" alt="AI" width={16} height={16} className="object-contain" />
+                <Image src="/logo.png" alt="" width={16} height={16} className="object-contain" />
               </div>
               <div
                 className="px-4 py-3 flex items-center gap-1.5 bg-white"
                 style={{ borderRadius: "4px 18px 18px 18px", boxShadow: "0 1px 3px rgba(0,0,0,0.08)" }}
               >
-                <span className="w-2 h-2 rounded-full bg-gray-300 animate-bounce" style={{ animationDelay: "0ms" }} />
-                <span className="w-2 h-2 rounded-full bg-gray-300 animate-bounce" style={{ animationDelay: "150ms" }} />
-                <span className="w-2 h-2 rounded-full bg-gray-300 animate-bounce" style={{ animationDelay: "300ms" }} />
+                <span className="w-2 h-2 rounded-full bg-gray-300 motion-safe:animate-bounce" style={{ animationDelay: "0ms" }} />
+                <span className="w-2 h-2 rounded-full bg-gray-300 motion-safe:animate-bounce" style={{ animationDelay: "150ms" }} />
+                <span className="w-2 h-2 rounded-full bg-gray-300 motion-safe:animate-bounce" style={{ animationDelay: "300ms" }} />
               </div>
             </div>
           )}
@@ -155,13 +156,16 @@ export default function FloatingWidget() {
 
         {/* Input */}
         <div className="px-3 py-3 shrink-0 flex items-center gap-2 border-t border-gray-100" style={{ backgroundColor: "white" }}>
+          <label htmlFor="chat-input" className="sr-only">Message</label>
           <textarea
+            id="chat-input"
             value={input}
             onChange={(e) => setInput(e.target.value)}
             onKeyDown={handleKeyDown}
-            placeholder="Ask me anything..."
+            placeholder="Ask me anything…"
             rows={1}
-            className="flex-1 text-[13px] px-4 py-2.5 outline-none resize-none text-gray-800 placeholder:text-gray-400"
+            aria-label="Message"
+            className="flex-1 text-[13px] px-4 py-2.5 resize-none text-gray-800 placeholder:text-gray-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--flaz-teal)]"
             style={{
               maxHeight: "80px",
               backgroundColor: "#f4f4f5",
@@ -172,7 +176,8 @@ export default function FloatingWidget() {
           <button
             onClick={handleSend}
             disabled={!input.trim()}
-            className="w-9 h-9 rounded-full flex items-center justify-center text-white shrink-0 transition-all disabled:opacity-30 disabled:scale-90"
+            aria-label="Send message"
+            className="w-9 h-9 rounded-full flex items-center justify-center text-white shrink-0 transition-all disabled:opacity-30 disabled:scale-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--flaz-teal)]"
             style={{ backgroundColor: "var(--flaz-teal)" }}
           >
             <SendIcon />
