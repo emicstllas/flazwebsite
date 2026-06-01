@@ -27,7 +27,7 @@ export default function ApproachSection() {
         {/* Left — sticky header + CTA */}
         <div className="lg:sticky lg:self-start" style={{ top: "88px" }}>
           <p
-            className="text-[10px] uppercase tracking-[0.2em] font-medium mb-4"
+            className="text-[11px] uppercase tracking-[0.2em] font-medium mb-4"
             style={{ color: "var(--flaz-teal)" }}
           >
             How we work
@@ -40,13 +40,13 @@ export default function ApproachSection() {
           </h2>
           <p
             className="font-light text-gray-500 leading-relaxed mb-10"
-            style={{ fontSize: "clamp(13px, 1.3vw, 16px)", maxWidth: "36ch" }}
+            style={{ fontSize: "clamp(15px, 1.5vw, 18px)", maxWidth: "36ch" }}
           >
             Every Flaz project follows the same four-stage process — so you always know what happens next, who is responsible, and where your project stands.
           </p>
           <Link
             href="#contact"
-            className="flaz-btn-teal inline-flex items-center gap-2 text-[13px] font-medium px-5 py-3 rounded-sm text-white"
+            className="flaz-btn-teal inline-flex items-center gap-2 text-[14px] font-medium px-5 py-3 rounded-sm text-white"
           >
             Get free consultation
             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
@@ -65,7 +65,7 @@ export default function ApproachSection() {
               style={{ borderTop: "1px solid rgba(44,44,44,0.1)" }}
             >
               <span
-                className="text-[11px] font-medium tabular-nums shrink-0 pt-1"
+                className="text-[12px] font-medium tabular-nums shrink-0 pt-1"
                 style={{ color: "var(--flaz-teal)", letterSpacing: "0.05em", minWidth: "22px" }}
               >
                 {String(i + 1).padStart(2, "0")}
@@ -73,13 +73,13 @@ export default function ApproachSection() {
               <div>
                 <h3
                   className="font-medium text-[var(--flaz-dark)] mb-2 leading-snug"
-                  style={{ fontSize: "clamp(15px, 1.4vw, 18px)" }}
+                  style={{ fontSize: "clamp(16px, 1.6vw, 20px)" }}
                 >
                   {step.title}
                 </h3>
                 <p
                   className="font-light text-gray-500 leading-relaxed"
-                  style={{ fontSize: "clamp(13px, 1.2vw, 15px)", maxWidth: "52ch" }}
+                  style={{ fontSize: "clamp(15px, 1.4vw, 17px)", maxWidth: "52ch" }}
                 >
                   {step.body}
                 </p>

@@ -1,6 +1,5 @@
 import HeroSection from "@/components/HeroSection";
 import WhyUsSection from "@/components/WhyUsSection";
-import ServicesSection from "@/components/ServicesSection";
 import ServicesGridSection from "@/components/ServicesGridSection";
 import ProjectsSection from "@/components/ProjectsSection";
 import ApproachSection from "@/components/ApproachSection";
@@ -13,7 +12,6 @@ export default function Home() {
     <main>
       <HeroSection />
       <WhyUsSection />
-      <ServicesSection />
       <ServicesGridSection />
       <ProjectsSection />
       <ApproachSection />

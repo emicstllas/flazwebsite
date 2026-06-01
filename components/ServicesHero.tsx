@@ -1,13 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
 
-const stats = [
-  { value: "200+", label: "Projects completed" },
-  { value: "10+", label: "Years in Dubai" },
-  { value: "4", label: "Service categories" },
-  { value: "100%", label: "Client satisfaction" },
-];
-
 export default function ServicesHero() {
   return (
     <section>
@@ -79,44 +72,6 @@ export default function ServicesHero() {
         </div>
       </div>
 
-      {/* Stats strip */}
-      <div
-        className="grid grid-cols-2 md:grid-cols-4"
-        style={{
-          marginLeft: "calc(clamp(16px, calc(-57px + 19.5vw), 318px) * -1)",
-          marginRight: "calc(clamp(16px, calc(-57px + 19.5vw), 318px) * -1)",
-          borderTop: "1px solid #d4d2ce",
-          borderBottom: "1px solid #d4d2ce",
-        }}
-      >
-        {stats.map((stat, i) => (
-          <div
-            key={stat.label}
-            className="flex flex-col gap-1 px-8 py-7"
-            style={{
-              borderRight: i < stats.length - 1 ? "1px solid #d4d2ce" : undefined,
-              paddingLeft:
-                i === 0
-                  ? "clamp(16px, calc(-57px + 19.5vw), 318px)"
-                  : undefined,
-              paddingRight:
-                i === stats.length - 1
-                  ? "clamp(16px, calc(-57px + 19.5vw), 318px)"
-                  : undefined,
-            }}
-          >
-            <span
-              className="text-[28px] md:text-[36px] font-medium leading-none"
-              style={{ color: "var(--flaz-teal)" }}
-            >
-              {stat.value}
-            </span>
-            <span className="text-[13px] md:text-[14px] font-light text-gray-500 leading-snug">
-              {stat.label}
-            </span>
-          </div>
-        ))}
-      </div>
     </section>
   );
 }

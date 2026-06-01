@@ -28,9 +28,9 @@ const reviews = [
 
 function quoteFontSize(text: string): string {
   const len = text.length;
-  if (len > 200) return "clamp(13px, 1.45vw, 18px)";
-  if (len > 160) return "clamp(15px, 1.65vw, 21px)";
-  return "clamp(17px, 2vw, 26px)";
+  if (len > 200) return "clamp(15px, 1.65vw, 20px)";
+  if (len > 160) return "clamp(17px, 1.85vw, 23px)";
+  return "clamp(19px, 2.2vw, 28px)";
 }
 
 function Stars({ size = 14 }: { size?: number }) {
@@ -59,7 +59,7 @@ export default function TestimonialsSection() {
       <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-5 mb-14">
         <div>
           <p
-            className="text-[10px] uppercase tracking-[0.2em] font-medium mb-4"
+            className="text-[11px] uppercase tracking-[0.2em] font-medium mb-4"
             style={{ color: "var(--flaz-teal)" }}
           >
             Client reviews
@@ -82,10 +82,10 @@ export default function TestimonialsSection() {
               >
                 4.8
               </span>
-              <span className="text-[12px] font-light text-gray-400">/5</span>
+              <span className="text-[13px] font-light text-gray-400">/5</span>
             </div>
-            <Stars size={12} />
-            <p className="text-[10px] font-light text-gray-400 mt-0.5">Google Reviews</p>
+            <Stars size={13} />
+            <p className="text-[11px] font-light text-gray-400 mt-0.5">Google Reviews</p>
           </div>
         </div>
       </div>
@@ -131,11 +131,11 @@ export default function TestimonialsSection() {
               </div>
               <p
                 className="font-medium text-[var(--flaz-dark)] mb-1"
-                style={{ fontSize: "clamp(15px, 1.4vw, 18px)" }}
+                style={{ fontSize: "clamp(16px, 1.5vw, 19px)" }}
               >
                 {review.name}
               </p>
-              <p className="text-[12px] font-light text-gray-400 mb-3 leading-snug">
+              <p className="text-[13px] font-light text-gray-400 mb-3 leading-snug">
                 {review.role} · {review.origin}
               </p>
               <Stars size={13} />
@@ -157,7 +157,7 @@ export default function TestimonialsSection() {
               </button>
 
               <span
-                className="text-[11px] font-medium tabular-nums"
+                className="text-[12px] font-medium tabular-nums"
                 style={{ color: "rgba(44,44,44,0.35)", letterSpacing: "0.1em" }}
               >
                 {String(active + 1).padStart(2, "0")} / {String(reviews.length).padStart(2, "0")}

@@ -70,7 +70,7 @@ export default function Navbar() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="relative text-[13px] tracking-[0.04em] transition-colors duration-200 pb-0.5"
+                className="relative text-[14px] tracking-[0.04em] transition-colors duration-200 pb-0.5"
                 style={{ color: isActive ? "var(--flaz-dark)" : undefined }}
                 onMouseEnter={(e) => { if (!isActive) e.currentTarget.style.color = "var(--flaz-dark)"; }}
                 onMouseLeave={(e) => { if (!isActive) e.currentTarget.style.color = ""; }}
@@ -105,7 +105,7 @@ export default function Navbar() {
           </a>
           <Link
             href="#contact"
-            className="text-[13px] font-medium px-4 py-2 rounded-sm whitespace-nowrap transition-colors"
+            className="text-[14px] font-medium px-4 py-2 rounded-sm whitespace-nowrap transition-colors"
             style={{ backgroundColor: "var(--flaz-teal)", color: "white" }}
             onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "var(--flaz-teal-dark)")}
             onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "var(--flaz-teal)")}
@@ -130,7 +130,7 @@ export default function Navbar() {
           </a>
           <Link
             href="#contact"
-            className="text-[12px] font-medium px-3 py-2 rounded-sm whitespace-nowrap"
+            className="text-[13px] font-medium px-3 py-2 rounded-sm whitespace-nowrap"
             style={{ backgroundColor: "var(--flaz-teal)", color: "white" }}
           >
             Contact us
@@ -187,7 +187,7 @@ export default function Navbar() {
           <div className="pt-4">
             <Link
               href="#contact"
-              className="block text-[13px] font-medium px-5 py-3 rounded-sm text-center"
+              className="block text-[14px] font-medium px-5 py-3 rounded-sm text-center"
               style={{ backgroundColor: "var(--flaz-teal)", color: "white" }}
               onClick={() => setMenuOpen(false)}
             >

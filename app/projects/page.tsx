@@ -12,77 +12,107 @@ export const metadata: Metadata = {
 export default function ProjectsPage() {
   return (
     <main>
-      {/* Page hero */}
-      <div className="pt-16 pb-0">
-        {/* Eyebrow */}
-        <div className="inline-flex items-center mb-8">
-          <span
-            className="text-[10px] uppercase tracking-[0.2em] font-medium px-3 py-1 rounded-full"
-            style={{
-              border: "1px solid rgba(77,200,200,0.35)",
-              color: "var(--flaz-teal)",
-              background: "rgba(77,200,200,0.07)",
-            }}
-          >
-            Portfolio
-          </span>
+      {/* Page header — full-bleed dark */}
+      <div
+        style={{
+          marginLeft: "calc(clamp(16px, calc(-57px + 19.5vw), 318px) * -1)",
+          marginRight: "calc(clamp(16px, calc(-57px + 19.5vw), 318px) * -1)",
+          backgroundColor: "var(--flaz-teal)",
+          position: "relative",
+          overflow: "hidden",
+        }}
+      >
+        {/* Dark shape — left panel with diagonal right edge */}
+        <div aria-hidden="true" style={{ position: "absolute", inset: 0, pointerEvents: "none" }}>
+          <svg viewBox="0 0 100 100" preserveAspectRatio="none" style={{ width: "100%", height: "100%", display: "block" }}>
+            <path d="M 0 0 L 62 0 L 45 100 L 0 100 Z" fill="#111111" />
+          </svg>
         </div>
-
-        {/* Heading + sub */}
-        <div className="flex items-end justify-between gap-8 flex-wrap mb-16">
-          <h1
-            className="font-medium text-[var(--flaz-dark)] leading-none tracking-tight"
-            style={
-              {
-                fontSize: "clamp(36px, 5vw, 64px)",
-                textWrap: "balance",
-              } as React.CSSProperties
-            }
-          >
-            Every project,<br />
-            <span style={{ fontWeight: 300, color: "rgba(44,44,44,0.45)" }}>
-              built from scratch.
-            </span>
-          </h1>
-          <p
-            className="text-[14px] font-light text-gray-500 leading-relaxed"
-            style={{ maxWidth: "40ch" }}
-          >
-            From permit approvals to final handover — each project is managed by a single team so nothing falls through the cracks.
-          </p>
-        </div>
-
-        {/* Stats strip — left-aligned, editorial, no identical-cell grid */}
+        {/* Grid — clipped to the dark shape only */}
         <div
-          className="flex flex-wrap"
-          style={{ borderTop: "1px solid rgba(44,44,44,0.1)" }}
+          aria-hidden="true"
+          style={{
+            position: "absolute",
+            inset: 0,
+            pointerEvents: "none",
+            backgroundImage: "linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px)",
+            backgroundSize: "40px 40px",
+            clipPath: "polygon(0 0, 62% 0, 45% 100%, 0 100%)",
+          }}
+        />
+        <div
+          style={{
+            position: "relative", zIndex: 1,
+            paddingLeft: "clamp(16px, calc(-57px + 19.5vw), 318px)",
+            paddingRight: "clamp(16px, calc(-57px + 19.5vw), 318px)",
+            paddingTop: "64px",
+            paddingBottom: "56px",
+          }}
         >
-          {[
-            { value: `${projects.length}+`, label: "Completed projects", note: "across Dubai" },
-            { value: "100%", label: "NOC success rate", note: "zero rejections" },
-            { value: "8–20 wks", label: "Average delivery", note: "design to handover" },
-            { value: "1", label: "Point of contact", note: "start to finish" },
-          ].map(({ value, label, note }, i) => (
-            <div
-              key={label}
-              className="flex-1 min-w-[140px] pt-7 pb-10"
+          {/* Eyebrow pill */}
+          <div className="inline-flex items-center mb-8">
+            <span
+              className="text-[10px] uppercase tracking-[0.2em] font-medium px-3 py-1 rounded-full"
               style={{
-                paddingRight: "clamp(20px, 2.5vw, 48px)",
-                paddingLeft: i === 0 ? 0 : "clamp(20px, 2.5vw, 48px)",
-                borderLeft: i > 0 ? "1px solid rgba(44,44,44,0.08)" : undefined,
+                border: "1px solid rgba(255,255,255,0.2)",
+                color: "rgba(255,255,255,0.7)",
+                background: "rgba(255,255,255,0.08)",
               }}
             >
-              <p
-                className="font-medium text-[var(--flaz-dark)] leading-none mb-2"
-                style={{ fontSize: "clamp(28px, 3.2vw, 44px)" }}
-              >
-                {value}
-              </p>
-              <p className="text-[12px] font-medium text-[var(--flaz-dark)] mb-0.5">{label}</p>
-              <p className="text-[11px] font-light text-gray-400">{note}</p>
-            </div>
-          ))}
+              Portfolio
+            </span>
+          </div>
+
+          {/* Heading + sub */}
+          <div className="flex items-end justify-between gap-8 flex-wrap mb-16">
+            <h1
+              className="font-medium text-white leading-none tracking-tight"
+              style={
+                {
+                  fontSize: "clamp(36px, 5vw, 64px)",
+                  textWrap: "balance",
+                } as React.CSSProperties
+              }
+            >
+              Every project,<br />
+              <span style={{ fontWeight: 300, color: "rgba(255,255,255,0.4)" }}>
+                built from scratch.
+              </span>
+            </h1>
+            <p
+              className="text-[14px] font-light leading-relaxed"
+              style={{ maxWidth: "40ch", color: "rgba(255,255,255,0.55)" }}
+            >
+              From permit approvals to final handover — each project is managed by a single team so nothing falls through the cracks.
+            </p>
+          </div>
+
         </div>
+      </div>
+
+      {/* Section header */}
+      <div className="flex flex-col md:flex-row md:items-end justify-between gap-5 mt-14 mb-10">
+        <div>
+          <p
+            className="text-[11px] uppercase tracking-[0.2em] font-medium mb-3"
+            style={{ color: "var(--flaz-teal)" }}
+          >
+            Our work
+          </p>
+          <h2
+            className="font-medium text-[var(--flaz-dark)] tracking-tight leading-tight"
+            style={{ fontSize: "clamp(22px, 3.2vw, 46px)" }}
+          >
+            Completed projects
+          </h2>
+        </div>
+        <p
+          className="text-[15px] font-light text-gray-500 leading-relaxed"
+          style={{ maxWidth: "40ch" }}
+        >
+          Every project delivered on time, on spec, and from a single point of contact.
+        </p>
+
       </div>
 
       {/* Grid */}
@@ -97,13 +127,13 @@ export default function ProjectsPage() {
           <p className="font-medium text-[var(--flaz-dark)] text-[18px] md:text-[22px] tracking-tight mb-1">
             Ready to start your own project?
           </p>
-          <p className="text-[13px] font-light text-gray-500">
+          <p className="text-[14px] font-light text-gray-500">
             Leave your details and we will call you within 24 hours.
           </p>
         </div>
         <a
           href="#contact"
-          className="flaz-btn-teal inline-flex items-center gap-2.5 text-[13px] font-medium text-white rounded-sm px-7 py-3 shrink-0"
+          className="flaz-btn-teal inline-flex items-center gap-2.5 text-[14px] font-medium text-white rounded-sm px-7 py-3 shrink-0"
         >
           Get in touch
           <span className="w-6 h-6 rounded-full flex items-center justify-center" style={{ background: "rgba(255,255,255,0.2)" }}>

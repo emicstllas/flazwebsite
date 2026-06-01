@@ -39,7 +39,7 @@ export default function ServicesGridSection() {
       <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-5 mb-12">
         <div>
           <p
-            className="text-[10px] uppercase tracking-[0.2em] font-medium mb-4"
+            className="text-[11px] uppercase tracking-[0.2em] font-medium mb-4"
             style={{ color: "var(--flaz-teal)" }}
           >
             Full scope
@@ -52,7 +52,7 @@ export default function ServicesGridSection() {
           </h2>
         </div>
         <p
-          className="text-[13px] font-light text-gray-500 leading-relaxed"
+          className="text-[15px] font-light text-gray-500 leading-relaxed"
           style={{ maxWidth: "38ch" }}
         >
           Every trade, fully coordinated. One team, one contract, zero gaps between disciplines.
@@ -75,7 +75,7 @@ export default function ServicesGridSection() {
             }}
           >
             <span
-              className="text-[11px] font-medium tabular-nums shrink-0 pt-0.5"
+              className="text-[12px] font-medium tabular-nums shrink-0 pt-0.5"
               style={{ color: "var(--flaz-teal)", minWidth: "22px" }}
             >
               {String(i + 1).padStart(2, "0")}
@@ -83,16 +83,35 @@ export default function ServicesGridSection() {
             <div>
               <h3
                 className="font-medium text-[var(--flaz-dark)] leading-snug mb-2"
-                style={{ fontSize: "clamp(14px, 1.4vw, 18px)" }}
+                style={{ fontSize: "clamp(15px, 1.5vw, 19px)" }}
               >
                 {s.title}
               </h3>
-              <p className="text-[13px] font-light text-gray-500 leading-relaxed">
+              <p className="text-[14px] font-light text-gray-500 leading-relaxed">
                 {s.desc}
               </p>
             </div>
           </div>
         ))}
+      </div>
+
+      {/* View all CTA */}
+      <div className="flex justify-center mt-10">
+        <a
+          href="/services"
+          className="flaz-btn-teal inline-flex items-center gap-3 text-[14px] font-medium px-7 py-3 rounded-sm text-white"
+        >
+          View all services
+          <span
+            className="w-6 h-6 rounded-full flex items-center justify-center"
+            style={{ background: "rgba(255,255,255,0.2)" }}
+          >
+            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <line x1="5" y1="12" x2="19" y2="12" />
+              <polyline points="12 5 19 12 12 19" />
+            </svg>
+          </span>
+        </a>
       </div>
     </section>
   );

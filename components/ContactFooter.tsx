@@ -47,7 +47,7 @@ export default function ContactFooter() {
         >
           <div>
             <p
-              className="text-[10px] uppercase tracking-[0.2em] font-medium mb-5"
+              className="text-[11px] uppercase tracking-[0.2em] font-medium mb-5"
               style={{ color: "var(--flaz-teal)" }}
             >
               Get in touch
@@ -59,7 +59,7 @@ export default function ContactFooter() {
               Ready to transform<br />your property?
             </h2>
             <p
-              className="text-[13px] font-light mb-8 leading-relaxed"
+              className="text-[15px] font-light mb-8 leading-relaxed"
               style={{ color: "rgba(255,255,255,0.42)" }}
             >
               Leave your details and we will call you within 24 hours.
@@ -76,7 +76,7 @@ export default function ContactFooter() {
                 placeholder="Your name"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
-                className="w-full text-white text-[13px] px-4 py-3.5 rounded-sm placeholder:text-white/25 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[var(--flaz-teal)]"
+                className="w-full text-white text-[14px] px-4 py-3.5 rounded-sm placeholder:text-white/25 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[var(--flaz-teal)]"
                 style={{
                   backgroundColor: "rgba(255,255,255,0.06)",
                   border: "1px solid rgba(255,255,255,0.1)",
@@ -91,7 +91,7 @@ export default function ContactFooter() {
                 }}
               >
                 <span
-                  className="pl-4 pr-3 text-[11px] font-medium shrink-0 py-3.5 tabular-nums"
+                  className="pl-4 pr-3 text-[12px] font-medium shrink-0 py-3.5 tabular-nums"
                   style={{
                     color: "rgba(255,255,255,0.38)",
                     borderRight: "1px solid rgba(255,255,255,0.1)",
@@ -108,12 +108,12 @@ export default function ContactFooter() {
                   placeholder="Phone number"
                   value={phone}
                   onChange={(e) => setPhone(e.target.value)}
-                  className="flex-1 text-[13px] px-3 py-3.5 text-white placeholder:text-white/25 bg-transparent focus-visible:outline-none focus-visible:ring-0"
+                  className="flex-1 text-[14px] px-3 py-3.5 text-white placeholder:text-white/25 bg-transparent focus-visible:outline-none focus-visible:ring-0"
                 />
               </div>
 
               <button
-                className="w-full py-3.5 rounded-sm text-white text-[13px] font-medium tracking-wide transition-all active:scale-[0.98]"
+                className="w-full py-3.5 rounded-sm text-white text-[14px] font-medium tracking-wide transition-all active:scale-[0.98]"
                 style={{ backgroundColor: "var(--flaz-teal)" }}
                 onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "var(--flaz-teal-dark)")}
                 onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "var(--flaz-teal)")}
@@ -122,7 +122,7 @@ export default function ContactFooter() {
               </button>
 
               <p
-                className="text-[11px] font-light leading-relaxed"
+                className="text-[12px] font-light leading-relaxed"
                 style={{ color: "rgba(255,255,255,0.22)" }}
               >
                 By submitting, you agree to our privacy policy and consent to being contacted by our team.
@@ -137,35 +137,35 @@ export default function ContactFooter() {
           >
             <div>
               <p
-                className="text-[10px] uppercase tracking-[0.15em] mb-1.5"
+                className="text-[11px] uppercase tracking-[0.15em] mb-1.5"
                 style={{ color: "rgba(255,255,255,0.28)" }}
               >
                 Phone
               </p>
               <a
                 href="tel:+97146086468"
-                className="text-[13px] font-light text-white/60 hover:text-white transition-colors"
+                className="text-[14px] font-light text-white/60 hover:text-white transition-colors"
               >
                 +971 (4) 608 6468
               </a>
             </div>
             <div>
               <p
-                className="text-[10px] uppercase tracking-[0.15em] mb-1.5"
+                className="text-[11px] uppercase tracking-[0.15em] mb-1.5"
                 style={{ color: "rgba(255,255,255,0.28)" }}
               >
                 Email
               </p>
               <a
                 href="mailto:welcome@flaz-group.ae"
-                className="text-[13px] font-light text-white/60 hover:text-white transition-colors"
+                className="text-[14px] font-light text-white/60 hover:text-white transition-colors"
               >
                 welcome@flaz-group.ae
               </a>
             </div>
             <div>
               <p
-                className="text-[10px] uppercase tracking-[0.15em] mb-1.5"
+                className="text-[11px] uppercase tracking-[0.15em] mb-1.5"
                 style={{ color: "rgba(255,255,255,0.28)" }}
               >
                 WhatsApp
@@ -174,7 +174,7 @@ export default function ContactFooter() {
                 href="https://wa.me/971542589881"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 text-[13px] font-light text-white/60 hover:text-white transition-colors"
+                className="inline-flex items-center gap-1.5 text-[14px] font-light text-white/60 hover:text-white transition-colors"
               >
                 <WhatsAppIcon />
                 Message us
@@ -196,9 +196,9 @@ export default function ContactFooter() {
             <div className="flex items-center gap-3 mb-6">
               <Image src="/logo.png" alt="Flaz Technical Services" width={36} height={36} className="object-contain" />
               <div>
-                <p className="text-white text-[14px] font-medium leading-none">Flaz Technical Services</p>
+                <p className="text-white text-[15px] font-medium leading-none">Flaz Technical Services</p>
                 <p
-                  className="text-[11px] font-light mt-0.5"
+                  className="text-[12px] font-light mt-0.5"
                   style={{ color: "rgba(255,255,255,0.38)" }}
                 >
                   Dubai, UAE
@@ -207,7 +207,7 @@ export default function ContactFooter() {
             </div>
 
             <p
-              className="text-[13px] font-light leading-relaxed mb-10"
+              className="text-[14px] font-light leading-relaxed mb-10"
               style={{ color: "rgba(255,255,255,0.38)", maxWidth: "38ch" }}
             >
               Full-cycle renovation and technical services for villas, apartments, and commercial spaces across Dubai.
@@ -217,7 +217,7 @@ export default function ContactFooter() {
             <div className="flex flex-col sm:flex-row gap-10">
               <div>
                 <p
-                  className="text-[10px] uppercase tracking-[0.15em] mb-4"
+                  className="text-[11px] uppercase tracking-[0.15em] mb-4"
                   style={{ color: "rgba(255,255,255,0.28)" }}
                 >
                   Navigation
@@ -227,7 +227,7 @@ export default function ContactFooter() {
                     <li key={l.href}>
                       <Link
                         href={l.href}
-                        className="text-[13px] font-light text-white/55 hover:text-white transition-colors"
+                        className="text-[14px] font-light text-white/55 hover:text-white transition-colors"
                       >
                         {l.label}
                       </Link>
@@ -238,7 +238,7 @@ export default function ContactFooter() {
 
               <div>
                 <p
-                  className="text-[10px] uppercase tracking-[0.15em] mb-4"
+                  className="text-[11px] uppercase tracking-[0.15em] mb-4"
                   style={{ color: "rgba(255,255,255,0.28)" }}
                 >
                   Services
@@ -248,7 +248,7 @@ export default function ContactFooter() {
                     <li key={l.label}>
                       <Link
                         href={l.href}
-                        className="text-[13px] font-light text-white/55 hover:text-white transition-colors leading-snug block"
+                        className="text-[14px] font-light text-white/55 hover:text-white transition-colors leading-snug block"
                       >
                         {l.label}
                       </Link>
@@ -265,7 +265,7 @@ export default function ContactFooter() {
             style={{ borderTop: "1px solid rgba(255,255,255,0.07)" }}
           >
             <p
-              className="text-[11px] font-light"
+              className="text-[12px] font-light"
               style={{ color: "rgba(255,255,255,0.28)" }}
             >
               Office 11, Floor 12A, I-Rise Tower, Dubai
@@ -281,7 +281,7 @@ export default function ContactFooter() {
         style={{ borderTop: "1px solid rgba(255,255,255,0.07)" }}
       >
         <p
-          className="text-[11px] font-light"
+          className="text-[12px] font-light"
           style={{ color: "rgba(255,255,255,0.22)" }}
         >
           © {new Date().getFullYear()} Flaz Technical Services. All rights reserved.
@@ -289,13 +289,13 @@ export default function ContactFooter() {
         <div className="flex items-center gap-5">
           <Link
             href="#"
-            className="text-[11px] font-light text-white/25 hover:text-white/50 transition-colors"
+            className="text-[12px] font-light text-white/25 hover:text-white/50 transition-colors"
           >
             Privacy policy
           </Link>
           <Link
             href="#"
-            className="text-[11px] font-light text-white/25 hover:text-white/50 transition-colors"
+            className="text-[12px] font-light text-white/25 hover:text-white/50 transition-colors"
           >
             Terms of service
           </Link>

@@ -100,7 +100,7 @@ function PortraitCard({
           {project.tags.map((tag) => (
             <span
               key={tag}
-              className="text-[10px] uppercase tracking-[0.13em] font-medium px-2.5 py-0.5"
+              className="text-[11px] uppercase tracking-[0.13em] font-medium px-2.5 py-0.5"
               style={{
                 background: "rgba(255,255,255,0.07)",
                 color: "rgba(255,255,255,0.62)",
@@ -116,18 +116,18 @@ function PortraitCard({
 
         <h3
           className="text-white font-medium leading-snug tracking-tight mb-3"
-          style={{ fontSize: "clamp(15px, 1.6vw, 22px)" }}
+          style={{ fontSize: "clamp(16px, 1.7vw, 23px)" }}
         >
           {project.title}
         </h3>
 
         <div className="flex items-center justify-between gap-3">
-          <p className="text-[11px] font-light" style={{ color: "rgba(255,255,255,0.38)" }}>
+          <p className="text-[12px] font-light" style={{ color: "rgba(255,255,255,0.38)" }}>
             {project.area} · {project.year}
           </p>
           <Link
             href={`/projects/${project.id}`}
-            className="group/btn inline-flex items-center gap-1.5 text-[12px] font-medium"
+            className="group/btn inline-flex items-center gap-1.5 text-[13px] font-medium"
             style={{
               color: "rgba(255,255,255,0.62)",
               transition: "color 250ms ease",
@@ -183,7 +183,7 @@ function WideCard({
               {project.tags.map((tag) => (
                 <span
                   key={tag}
-                  className="text-[10px] uppercase tracking-[0.15em] font-medium px-3 py-1"
+                  className="text-[11px] uppercase tracking-[0.15em] font-medium px-3 py-1"
                   style={{
                     border: "1px solid rgba(77,200,200,0.35)",
                     color: "var(--flaz-teal)",
@@ -202,7 +202,7 @@ function WideCard({
               {project.title}
             </h3>
             <p
-              className="text-[13px] md:text-[14px] font-light text-gray-500 leading-relaxed"
+              className="text-[14px] md:text-[15px] font-light text-gray-500 leading-relaxed"
               style={{ maxWidth: "40ch" }}
             >
               {project.desc}
@@ -211,16 +211,16 @@ function WideCard({
 
           <div className="flex items-center justify-between mt-8 flex-wrap gap-4">
             <div>
-              <p className="text-[10px] uppercase tracking-[0.13em] text-gray-400 mb-0.5">
+              <p className="text-[11px] uppercase tracking-[0.13em] text-gray-400 mb-0.5">
                 Location · Year
               </p>
-              <p className="text-[13px] font-medium text-[var(--flaz-dark)]">
+              <p className="text-[14px] font-medium text-[var(--flaz-dark)]">
                 {project.area} · {project.year}
               </p>
             </div>
             <Link
               href={`/projects/${project.id}`}
-              className="inline-flex items-center gap-2 text-[13px] font-medium text-white rounded-sm px-5 py-2.5"
+              className="inline-flex items-center gap-2 text-[14px] font-medium text-white rounded-sm px-5 py-2.5"
               style={{
                 backgroundColor: "var(--flaz-teal)",
                 transition: "background-color 280ms cubic-bezier(0.32, 0.72, 0, 1)",
@@ -287,7 +287,7 @@ export default function ProjectsSection() {
         {/* Eyebrow pill */}
         <div className="inline-flex items-center mb-5">
           <span
-            className="text-[10px] uppercase tracking-[0.2em] font-medium px-3 py-1 rounded-full"
+            className="text-[11px] uppercase tracking-[0.2em] font-medium px-3 py-1 rounded-full"
             style={{
               border: "1px solid rgba(77,200,200,0.35)",
               color: "var(--flaz-teal)",
@@ -314,7 +314,7 @@ export default function ProjectsSection() {
             </span>
           </h2>
           <p
-            className="text-[14px] font-light text-gray-500 leading-relaxed"
+            className="text-[15px] font-light text-gray-500 leading-relaxed"
             style={{ maxWidth: "38ch" }}
           >
             Each project is delivered from a single point of contact — design, permits,
@@ -366,7 +366,7 @@ export default function ProjectsSection() {
       >
         <Link
           href="/projects"
-          className="inline-flex items-center gap-3 text-[13px] font-medium px-7 py-3 rounded-sm"
+          className="inline-flex items-center gap-3 text-[14px] font-medium px-7 py-3 rounded-sm"
           style={{
             border: "1px solid var(--flaz-teal)",
             color: "var(--flaz-teal)",

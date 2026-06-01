@@ -38,7 +38,7 @@ export default function FAQSection() {
       {/* Header */}
       <div className="mb-12">
         <p
-          className="text-[10px] uppercase tracking-[0.2em] font-medium mb-4"
+          className="text-[11px] uppercase tracking-[0.2em] font-medium mb-4"
           style={{ color: "var(--flaz-teal)" }}
         >
           Common questions
@@ -68,13 +68,13 @@ export default function FAQSection() {
                 style={{ borderBottom: "1px solid rgba(44,44,44,0.08)" }}
               >
                 <span
-                  className="text-[11px] font-medium tabular-nums shrink-0 pt-0.5 transition-colors duration-200"
+                  className="text-[12px] font-medium tabular-nums shrink-0 pt-0.5 transition-colors duration-200"
                   style={{ color: isActive ? "var(--flaz-teal)" : "rgba(44,44,44,0.25)", minWidth: "22px" }}
                 >
                   {String(i + 1).padStart(2, "0")}
                 </span>
                 <span
-                  className="text-[14px] md:text-[15px] leading-snug transition-colors duration-200"
+                  className="text-[15px] md:text-[16px] leading-snug transition-colors duration-200"
                   style={{
                     color: isActive ? "var(--flaz-dark)" : "rgba(44,44,44,0.55)",
                     fontWeight: isActive ? 500 : 300,
@@ -100,13 +100,13 @@ export default function FAQSection() {
           <div key={active} className="faq-answer-enter">
             <p
               className="font-medium text-[var(--flaz-dark)] leading-snug mb-5"
-              style={{ fontSize: "clamp(17px, 1.8vw, 24px)" }}
+              style={{ fontSize: "clamp(18px, 2vw, 26px)" }}
             >
               {faqs[active].q}
             </p>
             <p
               className="font-light text-gray-500 leading-relaxed mb-10"
-              style={{ fontSize: "clamp(13px, 1.3vw, 16px)", maxWidth: "54ch" }}
+              style={{ fontSize: "clamp(15px, 1.5vw, 18px)", maxWidth: "54ch" }}
             >
               {faqs[active].a}
             </p>
@@ -116,12 +116,12 @@ export default function FAQSection() {
               className="flex items-center gap-4 pt-8"
               style={{ borderTop: "1px solid rgba(44,44,44,0.08)" }}
             >
-              <p className="text-[12px] font-light text-gray-400">
+              <p className="text-[13px] font-light text-gray-400">
                 Still have questions?
               </p>
               <Link
                 href="#contact"
-                className="inline-flex items-center gap-1.5 text-[12px] font-medium transition-colors"
+                className="inline-flex items-center gap-1.5 text-[13px] font-medium transition-colors"
                 style={{ color: "var(--flaz-teal)" }}
                 onMouseEnter={(e) => (e.currentTarget.style.color = "var(--flaz-teal-dark)")}
                 onMouseLeave={(e) => (e.currentTarget.style.color = "var(--flaz-teal)")}

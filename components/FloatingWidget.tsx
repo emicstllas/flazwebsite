@@ -17,7 +17,6 @@ const greeting: Message = {
   text: "Hi! 👋 I'm the Flaz AI assistant. I can help you with questions about our technical services, pricing, and projects. How can I help you today?",
 };
 
-// Placeholder AI responses — swap this for real API call later
 function getAIResponse(input: string): string {
   const q = input.toLowerCase();
   if (q.includes("price") || q.includes("cost") || q.includes("how much"))
@@ -64,70 +63,98 @@ export default function FloatingWidget() {
   return (
     <div className="fixed bottom-6 right-6 z-[51] flex flex-col items-center gap-3">
 
-      {/* ── AI Chat window — positioned to the LEFT of the bubble stack ── */}
+      {/* ── Chat window ── */}
       <div
-        className="absolute bottom-0 overflow-hidden shadow-2xl flex flex-col"
+        className="absolute bottom-0 flex flex-col shadow-2xl"
         style={{
           width: "340px",
-          height: "480px",
+          height: "500px",
           right: "80px",
-          transition: "opacity 280ms ease, transform 280ms ease",
-          opacity: isChatOpen ? 1 : 0,
-          transform: isChatOpen ? "translateX(0) scale(1)" : "translateX(16px) scale(0.97)",
-          pointerEvents: isChatOpen ? "auto" : "none",
-          borderRadius: "16px",
+          borderRadius: "6px",
           overflow: "hidden",
+          border: "1px solid rgba(44,44,44,0.12)",
+          transition: "opacity 260ms ease, transform 260ms ease",
+          opacity: isChatOpen ? 1 : 0,
+          transform: isChatOpen ? "translateY(0) scale(1)" : "translateY(12px) scale(0.97)",
+          pointerEvents: isChatOpen ? "auto" : "none",
         }}
       >
-        {/* Header */}
+        {/* Header — teal branded */}
         <div
-          className="flex items-center justify-between px-4 py-3.5 shrink-0"
-          style={{ background: "linear-gradient(135deg, #2c2c2c 0%, #1a1a1a 100%)" }}
+          className="px-5 pt-5 pb-4 shrink-0 relative"
+          style={{ background: "linear-gradient(135deg, var(--flaz-teal) 0%, var(--flaz-teal-dark) 100%)" }}
         >
-          <div className="flex items-center gap-3">
-            <div className="relative w-9 h-9 rounded-full flex items-center justify-center shrink-0" style={{ backgroundColor: "rgba(255,255,255,0.08)" }}>
-              <Image src="/logo.png" alt="Flaz" width={22} height={22} className="object-contain" />
-              <span className="absolute -bottom-0.5 -right-0.5 w-2.5 h-2.5 rounded-full bg-emerald-400 border-2 border-[#1a1a1a]" />
-            </div>
-            <div>
-              <p className="text-white text-[13px] font-medium leading-tight">Flaz AI Assistant</p>
-              <div className="flex items-center gap-1.5 mt-0.5">
-                <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
-                <p className="text-emerald-400 text-[11px]">Online — usually replies instantly</p>
+          {/* Subtle grid texture — matches page header language */}
+          <div
+            aria-hidden="true"
+            style={{
+              position: "absolute", inset: 0, pointerEvents: "none",
+              backgroundImage: "linear-gradient(rgba(255,255,255,0.07) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.07) 1px, transparent 1px)",
+              backgroundSize: "24px 24px",
+            }}
+          />
+          <div className="relative flex items-start justify-between">
+            <div className="flex items-center gap-3">
+              <div
+                className="w-10 h-10 rounded-sm flex items-center justify-center shrink-0"
+                style={{ backgroundColor: "rgba(255,255,255,0.18)", border: "1px solid rgba(255,255,255,0.25)" }}
+              >
+                <Image src="/logo.png" alt="Flaz" width={22} height={22} className="object-contain" style={{ filter: "brightness(0) invert(1)" }} />
+              </div>
+              <div>
+                <p className="text-white text-[14px] font-medium leading-tight tracking-tight">
+                  Flaz AI Assistant
+                </p>
+                <div className="flex items-center gap-1.5 mt-1">
+                  <span className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: "rgba(255,255,255,0.9)" }} />
+                  <p className="text-[11px]" style={{ color: "rgba(255,255,255,0.82)" }}>
+                    Online — usually replies instantly
+                  </p>
+                </div>
               </div>
             </div>
+            <button
+              onClick={() => setIsChatOpen(false)}
+              aria-label="Close chat"
+              className="w-7 h-7 rounded-sm flex items-center justify-center focus-visible:outline-none"
+              style={{ color: "rgba(255,255,255,0.75)", backgroundColor: "rgba(255,255,255,0.12)" }}
+              onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = "rgba(255,255,255,0.22)"; e.currentTarget.style.color = "white"; }}
+              onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = "rgba(255,255,255,0.12)"; e.currentTarget.style.color = "rgba(255,255,255,0.75)"; }}
+            >
+              <CloseIcon />
+            </button>
           </div>
-          <button
-            onClick={() => setIsChatOpen(false)}
-            aria-label="Close chat"
-            className="w-7 h-7 rounded-full flex items-center justify-center transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/50"
-            style={{ backgroundColor: "rgba(255,255,255,0.08)", color: "rgba(255,255,255,0.6)" }}
-            onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "rgba(255,255,255,0.15)")}
-            onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "rgba(255,255,255,0.08)")}
-          >
-            <CloseIcon />
-          </button>
         </div>
 
-        {/* Messages */}
+        {/* Messages — cream bg matching site palette */}
         <div
-          className="flex-1 overflow-y-auto px-4 py-4 flex flex-col gap-3"
-          style={{ backgroundColor: "#f7f7f8" }}
+          className="flex-1 overflow-y-auto px-4 py-5 flex flex-col gap-3"
+          style={{ backgroundColor: "#ECEAE6" }}
         >
           {messages.map((m, i) => (
-            <div key={i} className={`flex items-end gap-2 ${m.role === "user" ? "justify-end" : "justify-start"}`}>
+            <div
+              key={i}
+              className={`flex items-end gap-2 ${m.role === "user" ? "justify-end" : "justify-start"}`}
+            >
               {m.role === "ai" && (
-                <div className="w-7 h-7 rounded-full shrink-0 flex items-center justify-center mb-0.5" style={{ backgroundColor: "#1a1a1a" }}>
-                  <Image src="/logo.png" alt="AI" width={16} height={16} className="object-contain" />
+                <div
+                  className="w-6 h-6 rounded-sm shrink-0 flex items-center justify-center mb-0.5"
+                  style={{ backgroundColor: "var(--flaz-teal)" }}
+                >
+                  <Image src="/logo.png" alt="" width={14} height={14} className="object-contain" style={{ filter: "brightness(0) invert(1)" }} />
                 </div>
               )}
               <div
-                className="max-w-[80%] px-3.5 py-2.5 text-[13px] leading-relaxed"
+                className="max-w-[80%] px-4 py-2.5 text-[13px] leading-relaxed"
                 style={{
                   backgroundColor: m.role === "user" ? "var(--flaz-teal)" : "white",
                   color: m.role === "user" ? "white" : "#1a1a1a",
-                  borderRadius: m.role === "user" ? "18px 18px 4px 18px" : "4px 18px 18px 18px",
-                  boxShadow: "0 1px 3px rgba(0,0,0,0.08)",
+                  borderRadius: m.role === "user"
+                    ? "12px 3px 12px 12px"
+                    : "3px 12px 12px 12px",
+                  boxShadow: m.role === "user"
+                    ? "0 2px 8px rgba(77,200,200,0.28)"
+                    : "0 1px 4px rgba(0,0,0,0.07)",
                 }}
               >
                 {m.text}
@@ -138,16 +165,19 @@ export default function FloatingWidget() {
           {/* Typing indicator */}
           {isTyping && (
             <div className="flex items-end gap-2 justify-start" aria-live="polite" aria-label="AI is typing">
-              <div className="w-7 h-7 rounded-full shrink-0 flex items-center justify-center mb-0.5" style={{ backgroundColor: "#1a1a1a" }}>
-                <Image src="/logo.png" alt="" width={16} height={16} className="object-contain" />
+              <div
+                className="w-6 h-6 rounded-sm shrink-0 flex items-center justify-center mb-0.5"
+                style={{ backgroundColor: "var(--flaz-teal)" }}
+              >
+                <Image src="/logo.png" alt="" width={14} height={14} className="object-contain" style={{ filter: "brightness(0) invert(1)" }} />
               </div>
               <div
                 className="px-4 py-3 flex items-center gap-1.5 bg-white"
-                style={{ borderRadius: "4px 18px 18px 18px", boxShadow: "0 1px 3px rgba(0,0,0,0.08)" }}
+                style={{ borderRadius: "3px 12px 12px 12px", boxShadow: "0 1px 4px rgba(0,0,0,0.07)" }}
               >
-                <span className="w-2 h-2 rounded-full bg-gray-300 motion-safe:animate-bounce" style={{ animationDelay: "0ms" }} />
-                <span className="w-2 h-2 rounded-full bg-gray-300 motion-safe:animate-bounce" style={{ animationDelay: "150ms" }} />
-                <span className="w-2 h-2 rounded-full bg-gray-300 motion-safe:animate-bounce" style={{ animationDelay: "300ms" }} />
+                <span className="w-1.5 h-1.5 rounded-full bg-gray-300 motion-safe:animate-bounce" style={{ animationDelay: "0ms" }} />
+                <span className="w-1.5 h-1.5 rounded-full bg-gray-300 motion-safe:animate-bounce" style={{ animationDelay: "150ms" }} />
+                <span className="w-1.5 h-1.5 rounded-full bg-gray-300 motion-safe:animate-bounce" style={{ animationDelay: "300ms" }} />
               </div>
             </div>
           )}
@@ -155,7 +185,10 @@ export default function FloatingWidget() {
         </div>
 
         {/* Input */}
-        <div className="px-3 py-3 shrink-0 flex items-center gap-2 border-t border-gray-100" style={{ backgroundColor: "white" }}>
+        <div
+          className="px-3.5 py-3 shrink-0 flex items-center gap-2.5"
+          style={{ backgroundColor: "white", borderTop: "1px solid rgba(44,44,44,0.08)" }}
+        >
           <label htmlFor="chat-input" className="sr-only">Message</label>
           <textarea
             id="chat-input"
@@ -165,11 +198,11 @@ export default function FloatingWidget() {
             placeholder="Ask me anything…"
             rows={1}
             aria-label="Message"
-            className="flex-1 text-[13px] px-4 py-2.5 resize-none text-gray-800 placeholder:text-gray-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--flaz-teal)]"
+            className="flex-1 text-[13px] px-4 py-2.5 resize-none text-gray-800 placeholder:text-gray-400 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[var(--flaz-teal)]"
             style={{
               maxHeight: "80px",
-              backgroundColor: "#f4f4f5",
-              borderRadius: "20px",
+              backgroundColor: "#ECEAE6",
+              borderRadius: "6px",
               border: "none",
             }}
           />
@@ -177,8 +210,10 @@ export default function FloatingWidget() {
             onClick={handleSend}
             disabled={!input.trim()}
             aria-label="Send message"
-            className="w-9 h-9 rounded-full flex items-center justify-center text-white shrink-0 transition-all disabled:opacity-30 disabled:scale-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--flaz-teal)]"
-            style={{ backgroundColor: "var(--flaz-teal)" }}
+            className="w-9 h-9 rounded-full flex items-center justify-center text-white shrink-0 transition-all disabled:opacity-30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--flaz-teal)]"
+            style={{ backgroundColor: "var(--flaz-teal)", flexShrink: 0 }}
+            onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "var(--flaz-teal-dark)")}
+            onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "var(--flaz-teal)")}
           >
             <SendIcon />
           </button>
@@ -213,12 +248,12 @@ export default function FloatingWidget() {
         aria-label="Social media links"
         className="w-11 h-11 rounded-full flex items-center justify-center text-white shadow-lg"
         style={{
-          backgroundColor: "#1a1a1a",
+          backgroundColor: "#5a8f8f",
           transform: socialsOpen ? "rotate(45deg)" : "rotate(0deg)",
           transition: "transform 300ms ease, background-color 200ms",
         }}
-        onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#333")}
-        onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "#1a1a1a")}
+        onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#4a7a7a")}
+        onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "#5a8f8f")}
       >
         <ShareIcon />
       </button>
@@ -244,10 +279,10 @@ function ChatIcon() {
   return <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" /></svg>;
 }
 function CloseIcon() {
-  return <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" /></svg>;
+  return <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" /></svg>;
 }
 function SendIcon() {
-  return <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><line x1="22" y1="2" x2="11" y2="13" /><polygon points="22 2 15 22 11 13 2 9 22 2" /></svg>;
+  return <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2"><line x1="22" y1="2" x2="11" y2="13" /><polygon points="22 2 15 22 11 13 2 9 22 2" /></svg>;
 }
 function ShareIcon() {
   return <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="18" cy="5" r="3" /><circle cx="6" cy="12" r="3" /><circle cx="18" cy="19" r="3" /><line x1="8.59" y1="13.51" x2="15.42" y2="17.49" /><line x1="15.41" y1="6.51" x2="8.59" y2="10.49" /></svg>;
