@@ -143,13 +143,13 @@ export default function ContactFooter() {
                 Phone
               </p>
               <a
-                href="tel:+97146086468"
+                href="tel:+971542589881"
                 className="text-[14px] font-light text-white/60 hover:text-white transition-colors"
               >
-                +971 (4) 608 6468
+                +971 54 258 9881
               </a>
             </div>
-            <div>
+            <div className="min-w-0">
               <p
                 className="text-[11px] uppercase tracking-[0.15em] mb-1.5"
                 style={{ color: "rgba(255,255,255,0.28)" }}
@@ -157,10 +157,10 @@ export default function ContactFooter() {
                 Email
               </p>
               <a
-                href="mailto:welcome@flaz-group.ae"
-                className="text-[14px] font-light text-white/60 hover:text-white transition-colors"
+                href="mailto:info@flaztechnicalservices.com"
+                className="text-[14px] font-light text-white/60 hover:text-white transition-colors break-all"
               >
-                welcome@flaz-group.ae
+                info@flaztechnicalservices.com
               </a>
             </div>
             <div>
