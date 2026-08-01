@@ -30,6 +30,7 @@ type FormValues = z.infer<typeof schema>;
 export default function ContactModal() {
   const [isOpen, setIsOpen] = useState(false);
   const [sent, setSent] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
 
   const form = useForm<FormValues>({
     resolver: zodResolver(schema),
@@ -70,13 +71,25 @@ export default function ContactModal() {
     };
   }, [isOpen]);
 
-  function onSubmit(_values: FormValues) {
-    setSent(true);
-    setTimeout(() => {
-      setSent(false);
-      form.reset();
-      close();
-    }, 2000);
+  async function onSubmit(values: FormValues) {
+    setSubmitError(null);
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(values),
+      });
+      if (!res.ok) throw new Error();
+
+      setSent(true);
+      setTimeout(() => {
+        setSent(false);
+        form.reset();
+        close();
+      }, 2000);
+    } catch {
+      setSubmitError("Something went wrong. Please try again or call us directly.");
+    }
   }
 
   return (
@@ -205,8 +218,12 @@ export default function ContactModal() {
                         onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "var(--flaz-teal-dark)")}
                         onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "var(--flaz-teal)")}
                       >
-                        Send
+                        {form.formState.isSubmitting ? "Sending…" : "Send"}
                       </button>
+
+                      {submitError && (
+                        <p className="text-[13px] text-red-500">{submitError}</p>
+                      )}
                     </form>
                   </Form>
                 )}
