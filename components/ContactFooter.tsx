@@ -2,7 +2,6 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
 
 const navLinks = [
   { label: "Home", href: "/" },
@@ -20,9 +19,6 @@ const serviceLinks = [
 ];
 
 export default function ContactFooter() {
-  const [name, setName] = useState("");
-  const [phone, setPhone] = useState("");
-
   return (
     <section
       id="contact"
@@ -62,72 +58,18 @@ export default function ContactFooter() {
               className="text-[15px] font-light mb-8 leading-relaxed"
               style={{ color: "rgba(255,255,255,0.42)" }}
             >
-              Leave your details and we will call you within 24 hours.
+              Get in touch and we will call you within 24 hours.
             </p>
 
-            {/* Form */}
-            <div className="flex flex-col gap-3" style={{ maxWidth: "420px" }}>
-              <label htmlFor="footer-name" className="sr-only">Name</label>
-              <input
-                id="footer-name"
-                type="text"
-                name="name"
-                autoComplete="name"
-                placeholder="Your name"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-                className="w-full text-white text-[14px] px-4 py-3.5 rounded-sm placeholder:text-white/25 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[var(--flaz-teal)]"
-                style={{
-                  backgroundColor: "rgba(255,255,255,0.06)",
-                  border: "1px solid rgba(255,255,255,0.1)",
-                }}
-              />
-
-              <div
-                className="flex items-center rounded-sm overflow-hidden"
-                style={{
-                  backgroundColor: "rgba(255,255,255,0.06)",
-                  border: "1px solid rgba(255,255,255,0.1)",
-                }}
-              >
-                <span
-                  className="pl-4 pr-3 text-[12px] font-medium shrink-0 py-3.5 tabular-nums"
-                  style={{
-                    color: "rgba(255,255,255,0.38)",
-                    borderRight: "1px solid rgba(255,255,255,0.1)",
-                  }}
-                >
-                  AE +971
-                </span>
-                <label htmlFor="footer-phone" className="sr-only">Phone Number</label>
-                <input
-                  id="footer-phone"
-                  type="tel"
-                  name="phone"
-                  autoComplete="tel"
-                  placeholder="Phone number"
-                  value={phone}
-                  onChange={(e) => setPhone(e.target.value)}
-                  className="flex-1 text-[14px] px-3 py-3.5 text-white placeholder:text-white/25 bg-transparent focus-visible:outline-none focus-visible:ring-0"
-                />
-              </div>
-
-              <button
-                className="w-full py-3.5 rounded-sm text-white text-[14px] font-medium tracking-wide transition-all active:scale-[0.98]"
-                style={{ backgroundColor: "var(--flaz-teal)" }}
-                onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "var(--flaz-teal-dark)")}
-                onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "var(--flaz-teal)")}
-              >
-                Request a callback
-              </button>
-
-              <p
-                className="text-[12px] font-light leading-relaxed"
-                style={{ color: "rgba(255,255,255,0.22)" }}
-              >
-                By submitting, you agree to our privacy policy and consent to being contacted by our team.
-              </p>
-            </div>
+            <Link
+              href="#contact"
+              className="inline-flex px-8 py-3.5 rounded-sm text-white text-[14px] font-medium tracking-wide transition-all active:scale-[0.98]"
+              style={{ backgroundColor: "var(--flaz-teal)" }}
+              onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "var(--flaz-teal-dark)")}
+              onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "var(--flaz-teal)")}
+            >
+              Request a callback
+            </Link>
           </div>
 
           {/* Contact details */}
@@ -143,10 +85,10 @@ export default function ContactFooter() {
                 Phone
               </p>
               <a
-                href="tel:+971542589881"
+                href="tel:+971565095689"
                 className="text-[14px] font-light text-white/60 hover:text-white transition-colors"
               >
-                +971 54 258 9881
+                +971 56 509 5689
               </a>
             </div>
             <div className="min-w-0">
@@ -171,7 +113,7 @@ export default function ContactFooter() {
                 WhatsApp
               </p>
               <a
-                href="https://wa.me/971542589881"
+                href="https://wa.me/971565095689"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-1.5 text-[14px] font-light text-white/60 hover:text-white transition-colors"
@@ -268,7 +210,7 @@ export default function ContactFooter() {
               className="text-[12px] font-light"
               style={{ color: "rgba(255,255,255,0.28)" }}
             >
-              Office 11, Floor 12A, I-Rise Tower, Dubai
+              Office 510 B, 5th Floor, Al Barsha Business Center, Al Barsha 1, Dubai, United Arab Emirates
             </p>
           </div>
         </div>

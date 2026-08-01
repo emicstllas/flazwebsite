@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
-import FloatingWidget from "@/components/FloatingWidget";
+// import FloatingWidget from "@/components/FloatingWidget"; // hidden for now
 import ContactModal from "@/components/ContactModal";
 import { Geist } from "next/font/google";
 import { cn } from "@/lib/utils";
@@ -28,7 +28,7 @@ export default function RootLayout({
           {children}
         </div>
         <ContactModal />
-        <FloatingWidget />
+        {/* <FloatingWidget /> hidden for now */}
       </body>
     </html>
   );
