@@ -85,10 +85,10 @@ export default function ContactFooter() {
                 Phone
               </p>
               <a
-                href="tel:+971565095689"
+                href="tel:+971542589881"
                 className="text-[14px] font-light text-white/60 hover:text-white transition-colors"
               >
-                +971 56 509 5689
+                +971 54 258 9881
               </a>
             </div>
             <div className="min-w-0">
@@ -113,7 +113,7 @@ export default function ContactFooter() {
                 WhatsApp
               </p>
               <a
-                href="https://wa.me/971565095689"
+                href="https://wa.me/971542589881"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-1.5 text-[14px] font-light text-white/60 hover:text-white transition-colors"
